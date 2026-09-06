@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portafolio profesional de Luis Fabiano Ferreyra Alanya - Desarrollador Web">
+  <title>Luis Fabiano Ferreyra Alanya | Portafolio</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Barra de navegación -->
+  <header class="navbar">
+    <div class="navbar__container">
+      <a href="#inicio" class="navbar__logo">Luis<span>Fabiano</span></a>
+      <button class="navbar__toggle" id="menuToggle" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="navbar__menu" id="navMenu">
+        <ul>
+          <li><a href="#inicio" class="nav-link">Inicio</a></li>
+          <li><a href="#sobre-mi" class="nav-link">Sobre mí</a></li>
+          <li><a href="#educacion" class="nav-link">Educación</a></li>
+          <li><a href="#experiencia" class="nav-link">Experiencia</a></li>
+          <li><a href="#habilidades" class="nav-link">Habilidades</a></li>
+          <li><a href="#proyectos" class="nav-link">Proyectos</a></li>
+          <li><a href="#contacto" class="nav-link">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="inicio" class="hero">
+    <div class="hero__content">
+      <p class="hero__greeting">Hola, soy</p>
+      <h1 class="hero__name"><span class="grad">Luis Fabiano</span><br>Ferreyra Alanya</h1>
+      <h2 class="hero__rol" id="typed"></h2>
+      <p class="hero__desc">
+        Desarrollador web apasionado por crear experiencias digitales modernas,
+        funcionales y atractivas.
+      </p>
+      <div class="hero__buttons">
+        <a href="#proyectos" class="btn btn--primary">Ver proyectos</a>
+        <a href="#contacto" class="btn btn--outline">Contáctame</a>
+      </div>
+    </div>
+    <div class="hero__decoration">
+      <div class="hero__circle"></div>
+      <div class="hero__grid"></div>
+    </div>
+  </section>
+
+  <!-- Sobre mí -->
+  <section id="sobre-mi" class="section">
+    <div class="container">
+      <h2 class="section__title">Sobre mí</h2>
+      <div class="sobre-mi">
+        <div class="sobre-mi__avatar">LF</div>
+        <div class="sobre-mi__texto">
+          <p>
+            Soy <strong>Luis Fabiano Ferreyra Alanya</strong>, un desarrollador
+            apasionado por la tecnología y el diseño web. Me especializo en crear
+            soluciones digitales que combinan estética, rendimiento y una excelente
+            experiencia de usuario.
+          </p>
+          <p>
+            Me gusta aprender constantemente nuevas tecnologías y enfrentar desafíos
+            que me permitan crecer profesionalmente.
+          </p>
+          <div class="sobre-mi__datos">
+            <div><span>Nombre:</span> Luis Fabiano Ferreyra Alanya</div>
+            <div><span>Perfil:</span> Desarrollador Web</div>
+            <div><span>Idiomas:</span> Español</div>
+            <div><span>Email:</span> lfabiano@email.com</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Habilidades -->
+  <section id="habilidades" class="section section--alt">
+    <div class="container">
+      <h2 class="section__title">Habilidades</h2>
+      <div class="skills">
+        <div class="skill-card">
+          <div class="skill-card__icon">&#128187;</div>
+          <h3>HTML5</h3>
+          <div class="progress"><div class="progress__bar" data-value="90"></div></div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-card__icon">&#127912;</div>
+          <h3>CSS3</h3>
+          <div class="progress"><div class="progress__bar" data-value="85"></div></div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-card__icon">&#128268;</div>
+          <h3>JavaScript</h3>
+          <div class="progress"><div class="progress__bar" data-value="80"></div></div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-card__icon">&#128736;</div>
+          <h3>Responsive Design</h3>
+          <div class="progress"><div class="progress__bar" data-value="85"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Educación -->
+  <section id="educacion" class="section">
+    <div class="container">
+      <h2 class="section__title">Educación</h2>
+      <div class="timeline">
+        <div class="timeline__item">
+          <div class="timeline__punto"></div>
+          <div class="timeline__card">
+            <span class="timeline__fecha">En curso · 5.º ciclo</span>
+            <h3>Ingeniería de Sistemas</h3>
+            <p>Universidad Autónoma del Perú</p>
+          </div>
+        </div>
+        <div class="timeline__item">
+          <div class="timeline__punto"></div>
+          <div class="timeline__card">
+            <span class="timeline__fecha">2023</span>
+            <h3>Certificación Full Stack Developer</h3>
+            <p>Platzi - Bootcamp intensivo en desarrollo web</p>
+          </div>
+        </div>
+        <div class="timeline__item">
+          <div class="timeline__punto"></div>
+          <div class="timeline__card">
+            <span class="timeline__fecha">2022</span>
+            <h3>Curso de Diseño UI/UX</h3>
+            <p>Coursera - Fundamentos de experiencia de usuario</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experiencia laboral -->
+  <section id="experiencia" class="section section--alt">
+    <div class="container">
+      <h2 class="section__title">Experiencia Laboral</h2>
+      <div class="timeline">
+        <div class="timeline__item">
+          <div class="timeline__punto"></div>
+          <div class="timeline__card">
+            <span class="timeline__fecha">2024 - Actualidad</span>
+            <h3>Desarrollador Front-End</h3>
+            <p>TechNova Solutions</p>
+            <small>Maquetación de interfaces, animaciones y optimización de rendimiento web.</small>
+          </div>
+        </div>
+        <div class="timeline__item">
+          <div class="timeline__punto"></div>
+          <div class="timeline__card">
+            <span class="timeline__fecha">2023 - 2024</span>
+            <h3>Desarrollador Web Jr.</h3>
+            <p>Estudio Digital Creativo</p>
+            <small>Creación de landing pages y tiendas online con HTML, CSS y JavaScript.</small>
+          </div>
+        </div>
+        <div class="timeline__item">
+          <div class="timeline__punto"></div>
+          <div class="timeline__card">
+            <span class="timeline__fecha">2022 - 2023</span>
+            <h3>Freelancer Web</h3>
+            <p>Proyectos independientes</p>
+            <small>Diseño y desarrollo de sitios web para pequeños negocios.</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Proyectos -->
+  <section id="proyectos" class="section">
+    <div class="container">
+      <h2 class="section__title">Proyectos</h2>
+      <div class="proyectos">
+        <article class="project-card" data-categoria="web">
+          <div class="project-card__img">&#128225;</div>
+          <div class="project-card__body">
+            <h3>Landing Page Moderna</h3>
+            <p>Sitio web responsivo con animaciones y navegación fluida.</p>
+            <div class="project-card__tags">
+              <span>HTML5</span><span>CSS3</span><span>JS</span>
+            </div>
+          </div>
+        </article>
+        <article class="project-card" data-categoria="app">
+          <div class="project-card__img">&#128241;</div>
+          <div class="project-card__body">
+            <h3>App de Tareas</h3>
+            <p>Aplicación para gestionar tareas con almacenamiento local.</p>
+            <div class="project-card__tags">
+              <span>JavaScript</span><span>LocalStorage</span>
+            </div>
+          </div>
+        </article>
+        <article class="project-card" data-categoria="web">
+          <div class="project-card__img">&#127760;</div>
+          <div class="project-card__body">
+            <h3>Portafolio Personal</h3>
+            <p>Diseño minimalista y elegante para mostrar trabajos.</p>
+            <div class="project-card__tags">
+              <span>HTML5</span><span>CSS3</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <section id="contacto" class="section section--alt">
+    <div class="container container--narrow">
+      <h2 class="section__title">Contacto</h2>
+      <p class="section__sub">¿Tienes un proyecto en mente? Hablemos.</p>
+      <form id="formulario" class="form" novalidate>
+        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+        <input type="email" id="email" name="email" placeholder="Tu correo electrónico" required>
+        <textarea id="mensaje" name="mensaje" rows="5" placeholder="Tu mensaje" required></textarea>
+        <p class="form__error" id="formError"></p>
+        <button type="submit" class="btn btn--primary btn--full">Enviar mensaje</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; <span id="anio"></span> Luis Fabiano Ferreyra Alanya. Todos los derechos reservados.</p>
+  </footer>
+
+  <button class="scroll-top" id="scrollTop" aria-label="Volver arriba">&#8593;</button>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
