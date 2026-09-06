@@ -417,10 +417,53 @@ body.tema-claro .navbar__tema .icono-luna {
   width: 100%;
 }
 
+.hero__layout {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 56px;
+  align-items: center;
+  text-align: left;
+}
+
+.hero__texto {
+  max-width: 560px;
+  justify-self: end;
+}
+
+.hero__foto {
+  position: relative;
+  width: 260px;
+  height: 260px;
+  animation: girar-suave 8s ease-in-out infinite;
+}
+
+.hero__foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 40px rgba(45, 212, 191, 0.4), var(--sombra-brillo);
+}
+
+.hero__foto::before {
+  content: '';
+  position: absolute;
+  inset: -14px;
+  border-radius: 50%;
+  border: 2px dashed rgba(45, 212, 191, 0.5);
+  animation: rotar 20s linear infinite;
+}
+
+@keyframes rotar {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
 .hero__buttons {
   display: flex;
   gap: 16px;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
 }
 
@@ -957,6 +1000,27 @@ body::before {
   .sobre-mi {
     grid-template-columns: 1fr;
     text-align: center;
+  }
+
+  .hero__layout {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    text-align: center;
+    justify-items: center;
+  }
+
+  .hero__texto {
+    justify-self: center;
+  }
+
+  .hero__buttons {
+    justify-content: center;
+  }
+
+  .hero__foto {
+    width: 190px;
+    height: 190px;
+    order: -1;
   }
 
   .sobre-mi__avatar {
