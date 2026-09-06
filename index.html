@@ -13,9 +13,15 @@
   <header class="navbar">
     <div class="navbar__container">
       <a href="#inicio" class="navbar__logo">Luis<span>Fabiano</span></a>
-      <button class="navbar__toggle" id="menuToggle" aria-label="Abrir menú">
-        <span></span><span></span><span></span>
-      </button>
+      <div class="navbar__acciones">
+        <button class="navbar__tema" id="temaBtn" aria-label="Cambiar tema">
+          <span class="icono-sol" aria-hidden="true">&#9728;</span>
+          <span class="icono-luna" aria-hidden="true">&#9789;</span>
+        </button>
+        <button class="navbar__toggle" id="menuToggle" aria-label="Abrir menú">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
       <nav class="navbar__menu" id="navMenu">
         <ul>
           <li><a href="#inicio" class="nav-link">Inicio</a></li>
@@ -56,7 +62,9 @@
     <div class="container">
       <h2 class="section__title">Sobre mí</h2>
       <div class="sobre-mi">
-        <div class="sobre-mi__avatar">LF</div>
+        <div class="sobre-mi__avatar">
+          <img src="img/foto.jpg" alt="Foto de Luis Fabiano Ferreyra Alanya">
+        </div>
         <div class="sobre-mi__texto">
           <p>
             Soy <strong>Luis Fabiano Ferreyra Alanya</strong>, un desarrollador

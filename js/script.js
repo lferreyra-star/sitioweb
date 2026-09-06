@@ -1,4 +1,24 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // ===== Modo claro / oscuro =====
+  const temaBtn = document.getElementById('temaBtn');
+  const temaGuardado = localStorage.getItem('tema');
+  const prefiereClaro = window.matchMedia('(prefers-color-scheme: light)').matches;
+
+  function aplicarTema(claro) {
+    document.body.classList.toggle('tema-claro', claro);
+  }
+
+  if (temaGuardado) {
+    aplicarTema(temaGuardado === 'claro');
+  } else {
+    aplicarTema(prefiereClaro);
+  }
+
+  temaBtn.addEventListener('click', () => {
+    const claro = document.body.classList.toggle('tema-claro');
+    localStorage.setItem('tema', claro ? 'claro' : 'oscuro');
+  });
+
   // ===== Menú móvil =====
   const menuToggle = document.getElementById('menuToggle');
   const navMenu = document.getElementById('navMenu');
