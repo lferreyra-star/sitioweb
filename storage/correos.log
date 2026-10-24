@@ -1,0 +1,15 @@
+------------------------------------------------------------------------
+Para: lfabiano@email.com
+Asunto: Restablecer tu contraseña
+Estado: NO ENVIADO | La función mail() no está disponible. Configura SMTP.
+------------------------------------------------------------------------
+Hola,
+Has solicitado restablecer la contraseña de tu portafolio.
+Haz clic aquí para crear una nueva contraseña
+Este enlace caduca en 1 hora y solo puede usarse una vez.
+Si no fuiste tú, puedes ignorar este mensaje.
+
+
+--- ENLACE DE RESTABLECIMIENTO (NO ENVIADO) ---
+http://localhost/portafolio/restablecer.php?token=e43cb49675c30838bfd34c165faf27d6dd22b2d507bc1ef456e8285bd1817e00
+---

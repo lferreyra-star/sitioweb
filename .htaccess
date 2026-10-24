@@ -1,0 +1,55 @@
+# ===============================================================
+#  Portafolio — Apache
+#  Protección de archivos internos, cabeceras de seguridad y
+#  enrutado básico de la página de inicio.
+# ===============================================================
+
+# --- La carpeta de inicio es index.php ---
+DirectoryIndex index.php
+
+# --- No listar el contenido de los directorios ---
+Options -Indexes
+
+# --- Evita que Apache revele su versión ---
+ServerSignature Off
+
+# --- Límites de subida (por seguridad) ---
+LimitRequestBody 2097152
+
+# --- Cabeceras de seguridad HTTP ---
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+    Header set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+</IfModule>
+
+# --- Bloqueo directo de carpetas internas y bases de datos ---
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Bloquea /app y /storage
+    RewriteRule ^(app|storage)(/|$) - [F,L]
+
+    # Si no existe un archivo físico, sirve index.php (enrutado futuro)
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^ index.php [L]
+</IfModule>
+
+# --- Denegar el acceso a archivos sensibles vía HTTP ---
+<FilesMatch "\.(sqlite|db|sql|log|md|ini|json|lock|bak)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# --- Desactivar el listado y el seguimiento de errores PHP ---
+<IfModule mod_php.c>
+    php_flag display_errors Off
+    php_flag log_errors On
+</IfModule>
