@@ -43,11 +43,36 @@ html {
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   color: var(--color-texto);
-  background: var(--color-fondo);
-  line-height: 1.6;
+  background: radial-gradient(circle at top, rgba(16, 185, 129, 0.14), transparent 58%),
+    radial-gradient(circle at 80% 10%, rgba(45, 212, 191, 0.1), transparent 55%),
+    var(--color-fondo);
+  line-height: 1.7;
   overflow-x: hidden;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 20% 20%, rgba(16, 185, 129, 0.18), transparent 38%),
+    radial-gradient(circle at 85% 15%, rgba(59, 130, 246, 0.12), transparent 48%);
+  mix-blend-mode: screen;
+  z-index: -2;
+}
+
+body.tema-claro {
+  background: radial-gradient(circle at top, rgba(16, 185, 129, 0.12), transparent 60%),
+    radial-gradient(circle at bottom right, rgba(59, 130, 246, 0.08), transparent 58%),
+    var(--color-fondo);
+}
+
+body.tema-claro::before {
+  mix-blend-mode: multiply;
+  opacity: 0.35;
 }
 
 ::-webkit-scrollbar {
@@ -425,7 +450,22 @@ body.tema-claro .modal__error {
 .btn--primary {
   background: linear-gradient(135deg, var(--color-primario), var(--color-secundario));
   color: var(--color-blanco);
-  box-shadow: var(--sombra-brillo);
+  box-shadow: 0 15px 40px rgba(16, 185, 129, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn--primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.25), transparent 60%);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.btn--primary:hover::before {
+  transform: translateX(100%);
 }
 
 .btn--primary::after {
@@ -611,18 +651,30 @@ body.tema-claro .modal__error {
 
 .sobre-mi__datos div {
   font-size: 0.95rem;
-  padding: 10px 16px;
-  background: var(--color-card);
+  padding: 12px 18px;
+  background: linear-gradient(90deg, rgba(16, 185, 129, 0.12) 0%, transparent 60%), var(--color-card);
   border: 1px solid var(--color-borde);
-  border-radius: 10px;
-  backdrop-filter: blur(8px);
-  transition: var(--transicion);
+  border-radius: 12px;
+  backdrop-filter: blur(14px);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.sobre-mi__datos div::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 2px;
+  background: linear-gradient(180deg, var(--color-primario), var(--color-secundario));
 }
 
 .sobre-mi__datos div:hover {
-  border-color: var(--color-primario);
-  transform: translateX(6px);
-  box-shadow: var(--sombra-brillo);
+  border-color: rgba(45, 212, 191, 0.6);
+  transform: translateX(8px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45), var(--sombra-brillo);
 }
 
 .sobre-mi__datos span {
@@ -640,13 +692,13 @@ body.tema-claro .modal__error {
 }
 
 .skill-card {
-  background: var(--color-card);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, transparent 70%), var(--color-card);
   border: 1px solid var(--color-borde);
-  border-radius: var(--radio);
-  backdrop-filter: blur(8px);
-  padding: 32px 24px;
+  border-radius: calc(var(--radio) + 2px);
+  backdrop-filter: blur(16px) saturate(1.08);
+  padding: 34px 26px;
   text-align: center;
-  transition: var(--transicion);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
   position: relative;
   overflow: hidden;
 }
@@ -654,24 +706,41 @@ body.tema-claro .modal__error {
 .skill-card::before {
   content: '';
   position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top, rgba(16, 185, 129, 0.18), transparent 62%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.skill-card::after {
+  content: '';
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 3px;
-  background: linear-gradient(90deg, var(--color-primario), var(--color-secundario));
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.5s ease;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(45, 212, 191, 0.9), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.skill-card > * {
+  position: relative;
+  z-index: 1;
 }
 
 .skill-card:hover {
-  transform: translateY(-8px);
-  border-color: rgba(16, 185, 129, 0.5);
-  box-shadow: var(--sombra-brillo);
+  transform: translateY(-10px) scale(1.01);
+  border-color: rgba(45, 212, 191, 0.6);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5), var(--sombra-brillo);
 }
 
 .skill-card:hover::before {
-  transform: scaleX(1);
+  opacity: 1;
+}
+
+.skill-card:hover::after {
+  transform: translateX(100%);
 }
 
 .skill-card__icon {
@@ -721,34 +790,58 @@ body.tema-claro .modal__error {
 }
 
 .project-card {
-  background: var(--color-card);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, transparent 70%), var(--color-card);
   border: 1px solid var(--color-borde);
-  border-radius: var(--radio);
-  backdrop-filter: blur(8px);
+  border-radius: calc(var(--radio) + 4px);
+  backdrop-filter: blur(16px) saturate(1.1);
   overflow: hidden;
-  transition: var(--transicion);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
   position: relative;
 }
 
+.project-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top, rgba(16, 185, 129, 0.18), transparent 55%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.project-card:hover::before {
+  opacity: 1;
+}
+
 .project-card:hover {
-  transform: translateY(-8px) scale(1.01);
-  border-color: rgba(45, 212, 191, 0.5);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), var(--sombra-brillo);
+  transform: translateY(-12px) scale(1.01);
+  border-color: rgba(45, 212, 191, 0.6);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.55), var(--sombra-brillo);
 }
 
 .project-card__img {
-  height: 180px;
+  height: 190px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 3.4rem;
-  background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(45, 212, 191, 0.15));
+  font-size: 3.6rem;
+  background: radial-gradient(circle at top, rgba(16, 185, 129, 0.22), transparent 70%),
+    linear-gradient(135deg, rgba(16, 185, 129, 0.18), rgba(45, 212, 191, 0.14));
   color: var(--color-secundario);
-  transition: var(--transicion);
+  transition: transform 0.5s ease, color 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card__img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, transparent 40%, rgba(11, 17, 32, 0.25));
 }
 
 .project-card:hover .project-card__img {
-  transform: scale(1.08);
+  transform: scale(1.1);
   color: var(--color-primario);
 }
 
@@ -952,18 +1045,39 @@ body.tema-claro .modal__error {
 }
 
 .timeline__card {
-  background: var(--color-card);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, transparent 70%), var(--color-card);
   border: 1px solid var(--color-borde);
-  border-radius: var(--radio);
-  backdrop-filter: blur(8px);
-  padding: 22px 26px;
-  transition: var(--transicion);
+  border-radius: calc(var(--radio) + 2px);
+  padding: 30px;
+  backdrop-filter: blur(16px) saturate(1.08);
+  box-shadow: var(--sombra);
+  transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.timeline__card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top right, rgba(16, 185, 129, 0.16), transparent 55%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.timeline__card > * {
+  position: relative;
+  z-index: 1;
 }
 
 .timeline__card:hover {
-  transform: translateX(8px);
-  border-color: rgba(16, 185, 129, 0.5);
-  box-shadow: var(--sombra-brillo);
+  transform: translateX(12px);
+  border-color: rgba(45, 212, 191, 0.6);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5), var(--sombra-brillo);
+}
+
+.timeline__card:hover::before {
+  opacity: 1;
 }
 
 .timeline__fecha {
